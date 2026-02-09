@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Hawa ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .card {
+      background: rgba(0,0,0,0.35);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 350px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      z-index: 2;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .yes {
+      background: #00ff99;
+      color: #000;
+    }
+    .no {
+      background: #ffcccc;
+    }
+    .celebrate {
+      display: none;
+      font-size: 22px;
+      margin-top: 15px;
+    }
+    .heart {
+      position: fixed;
+      top: -20px;
+      font-size: 24px;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Hawa ❤️</h1>
+      <p>
+        From the moment you came into my life,  
+        my world became softer, warmer, and brighter.  
+        Your smile feels like home,  
+        your love feels like peace,  
+        and my heart chose you without hesitation.
+      </p>
+
+      <h2>Will you be my Valentine? 🌹</h2>
+
+      <button class="yes" onclick="yesClicked()">YES 💕</button>
+      <button class="no" onclick="noClicked()">NO 🙈</button>
+
+      <div class="celebrate" id="celebrate">
+        💖 You just made my heart the happiest 💖
+      </div>
+    </div>
+  </div>
+
+  <!-- Background music -->
+  <audio id="music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function yesClicked() {
+      document.getElementById("celebrate").style.display = "block";
+      document.getElementById("music").play();
+      createHearts();
+    }
+
+    function noClicked() {
+      alert("You can’t say no 😌❤️ Try again");
+    }
+
+    function createHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }, 300);
+    }
+  </script>
+</body>
+</html>
